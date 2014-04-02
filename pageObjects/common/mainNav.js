@@ -19,6 +19,10 @@ var MainNav = function(){
                 targetPage = require('../managers/managersPage');
                 browser.waitForAngular('body');
                 break;
+            case 'home':
+                this.element.managers.click();
+                targetPage = require('../home/homePage');
+                break;
         }
 
         return targetPage;

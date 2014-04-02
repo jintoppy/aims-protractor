@@ -36,7 +36,7 @@ exports.config = {
   //
   // Spec patterns are relative to the location of this config.
   specs: [
-    './specs/*.js'
+    './specs/**/*.js'
   ],
 
   // ----- Capabilities to be passed to the webdriver instance ----
@@ -58,6 +58,14 @@ exports.config = {
   rootElement: 'body',
 
   onPrepare: function() {
+      var ptor = protractor.getInstance();
+      ptor.ignoreSynchronization = true;
+      //browser.driver.get('http://localhost:4502/content/aims/en/site/home.html?wcmmode=preview&cq_ck=1396425425200');
+      browser.driver.get('https://mediumvikas:mediumvikas@aimsqag.sapient.com/content/aims/en/site/home.html');
+      //var loginPage = require('./pageobjects/cq/loginPage');
+      //loginPage.login('admin', 'admin');
+      //this.ignoreSynchronization = false;
+
       // Add a reporter and store screenshots to `screnshots`:
       jasmine.getEnv().addReporter(new HtmlReporter({
          baseDirectory: 'screenshots',
